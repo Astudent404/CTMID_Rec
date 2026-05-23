@@ -1,0 +1,2 @@
+model:
+  use_time_aligned_fusion: false

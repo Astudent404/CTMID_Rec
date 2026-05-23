@@ -1,0 +1,4 @@
+model:
+  use_exp_decay: true
+  ode_solver: euler
+  ode_steps: 1

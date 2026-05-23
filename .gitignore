@@ -1,0 +1,32 @@
+# Data and generated artifacts
+/data/
+/features/
+/checkpoints/
+/saved/
+/log/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Notebook checkpoints
+/.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Model and array outputs
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.npy
+*.npz
+
+# Local environments and editor state
+.env
+.venv/
+venv/
+env/
+.DS_Store
+.idea/
+.vscode/

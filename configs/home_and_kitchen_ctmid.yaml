@@ -1,0 +1,57 @@
+data:
+  raw_inter_path: data/Home_and_Kitchen.jsonl.gz
+  raw_meta_path: data/meta_Home_and_Kitchen.jsonl.gz
+  # processed_dir points at the protocol used for training (chronological = main
+  # protocol). Preprocessing derives the dataset root from this path and writes
+  # both chronological/ and leave_one_out/ subdirectories.
+  processed_dir: data/processed/home_and_kitchen/chronological
+  min_user_inter: 5
+  min_item_inter: 5
+  max_seq_len: 50
+  # split controls which protocols preprocessing generates: both | chronological | leave_one_out
+  split: both
+  text_feature_path: data/processed/home_and_kitchen/text_features.npy
+  image_feature_path: null
+
+model:
+  hidden_size: 64
+  modalities: [id, category, price, rating, text]
+  dropout_prob: 0.2
+  use_modality_specific_ode: true
+  use_user_ode: true
+  use_item_ode: true
+  use_multi_granularity_time: true
+  use_modality_adaptive_time_weight: true
+  use_time_aligned_fusion: true
+  use_exp_decay: false
+  ode_solver: rk4
+  ode_steps: 2
+  fusion_num_heads: 2
+  lambda_tempo: 0.05
+  lambda_contrast: 0.0
+  lambda_cross: 0.0
+
+train:
+  batch_size: 2048
+  epochs: 200
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  grad_clip_norm: 5.0
+  stopping_step: 10
+  checkpoint_dir: checkpoints/home_and_kitchen_ctmid
+  num_workers: 4
+  device: cuda
+  seed: 2026
+  # sampled-softmax negatives for training (0 = full softmax)
+  num_negatives: 4096
+  # bf16 AMP left off: it destabilised CTMID training (ODE numerics) with no
+  # real speedup here, since training is per-batch-overhead bound, not compute bound.
+  amp: false
+
+eval:
+  batch_size: 2048
+  topk: [5, 10, 20]
+  valid_metric: NDCG@10
+  mask_history: true
+  # chunk the item set during full-sort eval to bound GPU memory on this large catalog
+  item_chunk_size: 20000

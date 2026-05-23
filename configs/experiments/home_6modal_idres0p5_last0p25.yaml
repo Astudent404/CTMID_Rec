@@ -1,0 +1,14 @@
+data:
+  image_feature_path: data/processed/home_and_kitchen/image_features.npy
+
+model:
+  modalities: [id, category, price, rating, text, image]
+  id_residual_weight: 0.5
+  lambda_rank: 0.0
+  last_item_residual_weight: 0.25
+
+train:
+  checkpoint_dir: checkpoints/ra_ctmid/home_6modal_idres0p5_last0p25
+
+eval:
+  item_chunk_size: 20000

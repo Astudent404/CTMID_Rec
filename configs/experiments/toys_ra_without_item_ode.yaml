@@ -1,0 +1,8 @@
+model:
+  id_residual_weight: 0.5
+  last_item_residual_weight: 0.5
+  lambda_rank: 0.0
+  use_item_ode: false
+
+train:
+  checkpoint_dir: checkpoints/ra_ctmid/toys_ra_without_item_ode

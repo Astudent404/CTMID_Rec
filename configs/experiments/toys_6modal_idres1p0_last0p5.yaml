@@ -1,0 +1,7 @@
+model:
+  id_residual_weight: 1.0
+  lambda_rank: 0.0
+  last_item_residual_weight: 0.5
+
+train:
+  checkpoint_dir: checkpoints/ra_ctmid/toys_6modal_idres1p0_last0p5

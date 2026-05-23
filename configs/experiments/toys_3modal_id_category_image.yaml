@@ -1,0 +1,5 @@
+model:
+  modalities: [id, category, image]
+
+train:
+  checkpoint_dir: checkpoints/toys_3modal_id_category_image

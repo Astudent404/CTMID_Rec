@@ -1,0 +1,10 @@
+model:
+  id_residual_weight: 0.5
+  last_item_residual_weight: 0.5
+  lambda_rank: 0.0
+  use_exp_decay: true
+  ode_solver: euler
+  ode_steps: 1
+
+train:
+  checkpoint_dir: checkpoints/ra_ctmid/toys_ra_exp_decay

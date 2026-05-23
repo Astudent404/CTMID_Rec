@@ -1,0 +1,22 @@
+# 建议 Python 3.9 或 3.10。PyTorch 请按服务器 CUDA 版本安装对应 wheel。
+
+torch>=2.1,<2.6
+numpy>=1.23,<2.0
+pandas>=1.5,<2.3
+PyYAML>=6.0,<7.0
+tqdm>=4.64,<5.0
+scikit-learn>=1.2,<1.6
+tensorboard>=2.12,<3.0
+
+# 可选：更复杂的 ODE solver。当前代码默认内置 Euler/RK4。
+torchdiffeq>=0.2.3,<0.3
+
+# 可选：离线 text/image 特征提取，不是基础训练必需。
+transformers>=4.36,<5.0
+sentence-transformers>=2.2,<4.0
+Pillow>=9.5,<11.0
+torchvision>=0.16,<0.21
+
+# 开发与静态检查。
+pytest>=7.4,<9.0
+ruff>=0.4,<1.0

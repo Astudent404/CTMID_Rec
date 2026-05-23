@@ -1,0 +1,26 @@
+model:
+  hidden_size: 16
+  modalities: [id, category, price, rating]
+  dropout_prob: 0.1
+  use_modality_specific_ode: true
+  use_user_ode: true
+  use_item_ode: true
+  use_multi_granularity_time: true
+  use_modality_adaptive_time_weight: true
+  use_time_aligned_fusion: true
+  ode_solver: euler
+  ode_steps: 1
+  fusion_num_heads: 1
+  lambda_tempo: 0.01
+  lambda_contrast: 0.0
+  lambda_cross: 0.0
+  lambda_rank: 0.1
+  last_item_residual_weight: 0.25
+
+train:
+  seed: 2026
+  device: cpu
+  num_negatives: 5
+
+eval:
+  topk: [5, 10]
